@@ -1,0 +1,27 @@
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+    var options = {
+        key: "{{razorpay_key}}",
+        amount: "{{grand_total}}", 
+        currency: "INR",
+        first_name: "{{order.first_name}}",
+        description: "Test Transaction",
+        order_id: "{{razorpay_order_id}}",
+        callback_url: "{{callback_url}}",
+        redirect: true,
+        prefill: {
+            "name": "{{order.full_name}}",
+            "email": "{{order.email}}",
+            "contact": "{{order.phone}}"
+        },
+        notes: {
+            "address": "Razorpay Corporate Office"
+        },
+        theme: {
+            "color": "#3399cc"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+    </script>
+    <input type="hidden" custom="Hidden Element" name="hidden">
